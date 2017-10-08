@@ -1,7 +1,7 @@
 <div class="{{if isViewingSubview 'settings-menu-pane-out-left' 'settings-menu-pane-in'}} settings-menu settings-menu-pane tag-settings-pane">
     <div class="settings-menu-header {{if isMobile 'subview'}}">
         {{#if isMobile}}
-            {{#link-to 'settings.tags' class="back settings-menu-header-action"}}{{inline-svg "arrow-left"}}<span class="hidden">Back</span>{{/link-to}}
+            {{#link-to 'settings.tags' class="back settings-menu-header-action"}}{{inline-svg "arrow-left"}}<span class="hidden">返回</span>{{/link-to}}
             <h4>{{title}}</h4>
             <div style="width:23px;">{{!flexbox space-between}}</div>
         {{else}}
@@ -11,13 +11,13 @@
     <div class="settings-menu-content">
         {{gh-image-uploader-with-preview
             image=tag.featureImage
-            text="Upload tag image"
+            text="上传标签图像"
             allowUnsplash=true
             update=(action "setCoverImage")
             remove=(action "clearCoverImage")}}
         <form>
             {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="name"}}
-                <label for="tag-name">Name</label>
+                <label for="tag-name">名称</label>
                 {{gh-input scratchName id="tag-name" name="name" type="text" focusOut=(action 'setProperty' 'name' scratchName) update=(action (mut scratchName))}}
                 {{gh-error-message errors=tag.errors property="name"}}
             {{/gh-form-group}}
@@ -30,24 +30,24 @@
             {{/gh-form-group}}
 
             {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="description"}}
-                <label for="tag-description">Description</label>
+                <label for="tag-description">标签描述</label>
                 {{gh-textarea scratchDescription id="tag-description" name="description" focusOut=(action 'setProperty' 'description' scratchDescription) update=(action (mut scratchDescription))}}
                 {{gh-error-message errors=tag.errors property="description"}}
-                <p>Maximum: <b>200</b> characters. You’ve used {{gh-count-down-characters scratchDescription 200}}</p>
+                <p>最大: <b>200</b> 个字符. 你已使用 {{gh-count-down-characters scratchDescription 200}}</p>
             {{/gh-form-group}}
 
             <ul class="nav-list nav-list-block">
                 <li class="nav-list-item" {{action 'openMeta'}}>
                     <button type="button" class="meta-data-button">
-                        <b>Meta Data</b>
-                        <span>Extra content for SEO and social media.</span>
+                        <b>元数据</b>
+                        <span>供 SEO 和社交媒体使用的额外内容.</span>
                     </button>
                     {{inline-svg "arrow-right"}}
                 </li>
             </ul>
 
             {{#unless tag.isNew}}
-                <button type="button" class="gh-btn gh-btn-link gh-btn-sm gh-btn-icon settings-menu-delete-button" {{action "deleteTag"}}><span>{{inline-svg "trash"}} Delete Tag</span></button>
+                <button type="button" class="gh-btn gh-btn-link gh-btn-sm gh-btn-icon settings-menu-delete-button" {{action "deleteTag"}}><span>{{inline-svg "trash"}} 删除标签</span></button>
             {{/unless}}
         </form>
     </div>
@@ -55,7 +55,7 @@
 
 <div class="{{if isViewingSubview 'settings-menu-pane-in' 'settings-menu-pane-out-right'}} settings-menu settings-menu-pane tag-meta-settings-pane">
     <div class="settings-menu-header subview">
-        <button {{action "closeMeta"}} class="back settings-menu-header-action">{{inline-svg "arrow-left"}}<span class="hidden">Back</span></button>
+        <button {{action "closeMeta"}} class="back settings-menu-header-action">{{inline-svg "arrow-left"}}<span class="hidden">返回</span></button>
         <h4>Meta Data</h4>
         <div style="width:23px;">{{!flexbox space-between}}</div>
     </div>
@@ -77,7 +77,7 @@
             {{/gh-form-group}}
 
             <div class="form-group">
-                <label>Search Engine Result Preview</label>
+                <label>搜索引擎结果预览</label>
                 <div class="seo-preview">
                     <div class="seo-preview-title">{{seoTitle}}</div>
                     <div class="seo-preview-link">{{seoURL}}</div>

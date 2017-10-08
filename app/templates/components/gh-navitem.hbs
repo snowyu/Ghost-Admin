@@ -18,10 +18,10 @@
 
 {{#if navItem.isNew}}
     <button type="button" class="gh-blognav-add" {{action "addItem"}}>
-        {{inline-svg "add"}}<span class="sr-only">Add</span>
+        {{inline-svg "add"}}<span class="sr-only">添加</span>
     </button>
 {{else}}
     <button type="button" class="gh-blognav-delete" {{action "deleteItem" navItem}}>
-        {{inline-svg "trash"}}<span class="sr-only">Delete</span>
+        {{inline-svg "trash"}}<span class="sr-only">删除</span>
     </button>
 {{/if}}

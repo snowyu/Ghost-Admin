@@ -4,23 +4,23 @@
 <section class="gh-content-entry-meta">
     {{#if isPublished}}
         {{#if post.page}}
-            <span class="gh-content-status-draft gh-badge gh-badge-black">Page</span>
+            <span class="gh-content-status-draft gh-badge gh-badge-black">页面</span>
         {{else}}
-            <span class="gh-content-status-published">Published</span>
+            <span class="gh-content-status-published">已发布</span>
         {{/if}}
     {{else if isScheduled}}
-        <span class="gh-content-status-draft gh-badge">Scheduled</span>
+        <span class="gh-content-status-draft gh-badge">已规划</span>
     {{else}}
-        <span class="gh-content-status-draft gh-badge gh-badge-red">Draft</span>
+        <span class="gh-content-status-draft gh-badge gh-badge-red">草稿</span>
     {{/if}}
 
-    by <span class="gh-content-entry-author">{{authorName}}</span> &mdash;
+    被 <span class="gh-content-entry-author">{{authorName}}</span> &mdash;
 
     {{#if isPublished}}
         {{gh-format-post-time post.publishedAtUTC published=true}}
     {{else if isScheduled}}
-        <span class="green">Will go live {{gh-format-post-time post.publishedAtUTC scheduled=true}}</span>
+        <span class="green">将于 {{gh-format-post-time post.publishedAtUTC scheduled=true}}发布</span>
     {{else}}
-        Last edited {{gh-format-post-time post.updatedAtUTC draft=true}}
+        上次编辑于 {{gh-format-post-time post.updatedAtUTC draft=true}}
     {{/if}}
 </section>
