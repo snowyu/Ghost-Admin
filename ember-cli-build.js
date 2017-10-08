@@ -137,6 +137,7 @@ module.exports = function (defaults) {
         minifyJS: {
             options: {
                 output: {
+                    max_line_len: 500000,
                     semicolons: true
                 }
             }
