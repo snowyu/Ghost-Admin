@@ -45,24 +45,24 @@ export default Service.extend(Evented, {
 
         this.throbbers = [{
             id: 'getting-started',
-            title: 'Getting started with Ghost',
-            message: `This is your admin area! You'll find all of your content, users and settings right here. You can come back any time by visiting <a href="${adminUrl}" target="_blank">${adminDisplayUrl}</a>`
+            title: '开始使用 Ghost',
+            message: `这是你的站点管理区域! 你将在这里找到你站点设置，用户，以及内容. 你可以在任何时候回到这里，通过访问 <a href="${adminUrl}" target="_blank">${adminDisplayUrl}</a>`
         }, {
             id: 'using-the-editor',
-            title: 'Using the Ghost editor',
-            message: 'Ghost uses Markdown to allow you to write and format content quickly and easily. This toolbar also helps! Hit the <strong>?</strong> icon for more editor shortcuts.'
+            title: '使用 Ghost 编辑器',
+            message: 'Ghost 使用 Markdown 快速轻松的编辑文章。下方的工具条可以辅助你编辑。点击 <strong>?</strong> 图标可以查看更多的编辑快捷键.'
         }, {
             id: 'static-post',
-            title: 'Turning posts into pages',
-            message: 'Static pages are permanent pieces of content which live outside of your usual stream of posts, for example an \'about\' or \'contact\' page.'
+            title: '将文章转为静态页面',
+            message: '静态页面是永久的内容，它不在您通常的文章（帖子）中。例如, \'关于\' 或者 \'联系我们\' 这样的页面.'
         }, {
             id: 'featured-post',
-            title: 'Setting a featured post',
-            message: 'Depending on your theme, featured posts receive special styling to make them stand out as a particularly important or emphasised story.'
+            title: '设置一个精选文章',
+            message: '根据您的主题，精选文章会有特殊的类型，使其脱颖而出，成为一个特别重要或强调的故事。'
         }, {
             id: 'upload-a-theme',
-            title: 'Customising your publication',
-            message: 'Using custom themes, you can completely control the look and feel of your site to suit your branch. Here\'s a full guide to help: <strong><a href="https://themes.ghost.org" target="_blank">https://themes.ghost.org</a></strong>'
+            title: '定制你的主题（站点皮肤）',
+            message: '使用自定义主题，您可以完全控制您的网站的外观和感觉。这里是完整的帮助指南： <strong><a href="https://themes.ghost.org" target="_blank">https://themes.ghost.org</a></strong>'
         }];
     },
 

@@ -8,7 +8,7 @@
                         {{gh-trim-focus-input model.identification
                             class="email"
                             type="email"
-                            placeholder="Email Address"
+                            placeholder="电子邮件"
                             name="identification"
                             autocapitalize="off"
                             autocorrect="off"
@@ -23,7 +23,7 @@
                         {{gh-input model.password
                             class="password"
                             type="password"
-                            placeholder="Password"
+                            placeholder="密码"
                             name="password"
                             tabindex="2"
                             autocorrect="off"
@@ -38,12 +38,12 @@
                             failureClass=""
                             as |task|
                         }}
-                            <span>{{#if task.isRunning}}{{inline-svg "spinner" class="gh-spinner"}}{{else}}Forgot?{{/if}}</span>
+                            <span>{{#if task.isRunning}}{{inline-svg "spinner" class="gh-spinner"}}{{else}}忘记密码?{{/if}}</span>
                         {{/gh-task-button}}
                     </span>
                 {{/gh-form-group}}
 
-                {{gh-task-button "Sign in"
+                {{gh-task-button "登入"
                     task=validateAndAuthenticate
                     class="login gh-btn gh-btn-blue gh-btn-block gh-btn-icon"
                     type="submit"

@@ -1,17 +1,17 @@
-<header class="gh-publishmenu-heading">Update post status</header>
+<header class="gh-publishmenu-heading">更新文章的状态</header>
 <section class="gh-publishmenu-content">
     <div class="gh-publishmenu-radio {{if (eq saveType "draft") "active"}}" {{action setSaveType "draft" on="click"}}>
         <div class="gh-publishmenu-radio-button" data-test-publishmenu-unpublished-option></div>
         <div class="gh-publishmenu-radio-content">
-            <div class="gh-publishmenu-radio-label">Unpublished</div>
-            <div class="gh-publishmenu-radio-desc">Revert this post to a private draft</div>
+            <div class="gh-publishmenu-radio-label">取消发布</div>
+            <div class="gh-publishmenu-radio-desc">将文章改回草稿</div>
         </div>
     </div>
     <div class="gh-publishmenu-radio {{if (eq saveType "publish") "active"}}" {{action setSaveType "publish" on="click"}}>
         <div class="gh-publishmenu-radio-button" data-test-publishmenu-published-option></div>
         <div class="gh-publishmenu-radio-content">
-            <div class="gh-publishmenu-radio-label">Published</div>
-            <div class="gh-publishmenu-radio-desc">Display this post publicly</div>
+            <div class="gh-publishmenu-radio-label">已发布</div>
+            <div class="gh-publishmenu-radio-desc">公开显示本文</div>
         </div>
     </div>
 </section>

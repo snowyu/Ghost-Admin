@@ -32,11 +32,11 @@ export default Component.extend({
         let state = this.get('postState');
 
         if (state === 'published') {
-            return 'Update';
+            return '更新';
         } else if (state === 'scheduled') {
-            return 'Scheduled';
+            return '规划';
         } else {
-            return 'Publish';
+            return '发布';
         }
     }),
 

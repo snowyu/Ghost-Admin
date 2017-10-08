@@ -2,31 +2,31 @@
     <div id="entry-controls">
         <div class="{{if isViewingSubview 'settings-menu-pane-out-left' 'settings-menu-pane-in'}} settings-menu settings-menu-pane">
             <div class="settings-menu-header">
-                <h4>Post Settings</h4>
+                <h4>文章设置</h4>
                 <button class="close settings-menu-header-action" {{action "closeMenus" target=ui}} data-test-close-settings-menu>
-                    {{inline-svg "close"}}<span class="hidden">Close</span>
+                    {{inline-svg "close"}}<span class="hidden">关闭</span>
                 </button>
             </div>
             <div class="settings-menu-content">
                 {{gh-image-uploader-with-preview
                     image=model.featureImage
-                    text="Upload post image"
+                    text="上传封面图像"
                     allowUnsplash=true
                     update=(action "setCoverImage")
                     remove=(action "clearCoverImage")
                 }}
                 <form>
                 <div class="form-group">
-                    <label for="url">Post URL</label>
+                    <label for="url">文章 URL</label>
                     {{!-- new posts don't have a preview link --}}
                     {{#unless model.isNew}}
                         {{#if model.isPublished}}
                         <a class="post-view-link" target="_blank" href="{{model.absoluteUrl}}">
-                            View post {{inline-svg "external"}}
+                            查看 post {{inline-svg "external"}}
                         </a>
                         {{else}}
                         <a class="post-view-link" target="_blank" href="{{model.previewUrl}}">
-                            Preview {{inline-svg "external"}}
+                            预览 {{inline-svg "external"}}
                         </a>
                         {{/if}}
                     {{/unless}}
@@ -46,10 +46,10 @@
 
                 <div class="form-group">
                     {{#if (or model.isDraft model.isPublished model.pastScheduledTime)}}
-                        <label>Publish Date</label>
+                        <label>发布时间</label>
                     {{else}}
-                        <label>Scheduled Date</label>
-                        <p>Use the publish menu to re-schedule</p>
+                        <label>已规划发布时间</label>
+                        <p>使用发布(publish)菜单重新规划</p>
                     {{/if}}
                     {{gh-date-time-picker
                         date=model.publishedAtBlogDate
@@ -81,7 +81,7 @@
                 </div>
 
                 {{#gh-form-group errors=model.errors hasValidated=model.hasValidated property="customExcerpt"}}
-                    <label for="custom-excerpt">Excerpt</label>
+                    <label for="custom-excerpt">摘要</label>
                     {{gh-textarea customExcerptScratch
                         class="post-setting-custom-excerpt"
                         id="custom-excerpt"
@@ -95,7 +95,7 @@
 
                 {{#unless session.user.isAuthor}}
                 <div class="form-group for-select">
-                    <label for="author-list">Author</label>
+                    <label for="author-list">作者</label>
                     <span class="gh-input-icon gh-icon-user">
                         {{inline-svg "user-circle"}}
                         <span class="gh-select" tabindex="0">
@@ -117,8 +117,8 @@
                 <ul class="nav-list nav-list-block">
                     <li class="nav-list-item" {{action "showSubview" "meta-data"}} data-test-button="meta-data">
                         <button type="button">
-                            <b>Meta Data</b>
-                            <span>Extra content for search engines</span>
+                            <b>元数据</b>
+                            <span>供搜索引擎使用的额外内容</span>
                         </button>
                         {{inline-svg "arrow-right"}}
                     </li>
@@ -149,18 +149,18 @@
                     <label class="checkbox" for="static-page" {{action "togglePage" bubbles="false"}}>
                         {{one-way-checkbox model.page type="checkbox" name="static-page" id="static-page" class="gh-input post-setting-static-page" update=(action (mut model.page))}}
                         <span class="input-toggle-component"></span>
-                        <p>Turn this post into a page</p>
+                        <p>文章转页面</p>
                     </label>
 
                     <label class="checkbox" for="featured" {{action "toggleFeatured" bubbles="false"}}>
                         {{one-way-checkbox model.featured type="checkbox" name="featured" id="featured" class="gh-input post-setting-featured" update=(action (mut model.featured))}}
                         <span class="input-toggle-component"></span>
-                        <p>Feature this post</p>
+                        <p>将本文列入精选内容</p>
                     </label>
                 </div>
 
                 {{#unless model.isNew}}
-                    <button type="button" class="gh-btn gh-btn-link gh-btn-icon settings-menu-delete-button" {{action "deletePost"}}><span>{{inline-svg "trash"}} Delete Post</span></button>
+                    <button type="button" class="gh-btn gh-btn-link gh-btn-icon settings-menu-delete-button" {{action "deletePost"}}><span>{{inline-svg "trash"}} 删除本文</span></button>
                 {{/unless}}
 
                 </form>
@@ -173,7 +173,7 @@
                     {{#if (eq subview "meta-data")}}
                         <div class="settings-menu-header subview">
                             <button {{action "closeSubview"}} class="back settings-menu-header-action" data-test-button="close-psm-subview">{{inline-svg "arrow-left"}}<span class="hidden">Back</span></button>
-                            <h4>Meta Data</h4>
+                            <h4>元数据</h4>
                             <div style="width:23px;"></div>
                         </div>
 
@@ -189,7 +189,7 @@
                                         stopEnterKeyDownPropagation="true"
                                         update=(action (mut metaTitleScratch))
                                         data-test-field="meta-title"}}
-                                    <p>Recommended: <b>70</b> characters. You’ve used {{gh-count-down-characters metaTitleScratch 70}}</p>
+                                    <p>建议: <b>70</b> 个字符. 你已用 {{gh-count-down-characters metaTitleScratch 70}}</p>
                                     {{gh-error-message errors=model.errors property="meta-title"}}
                                 {{/gh-form-group}}
 
@@ -203,12 +203,12 @@
                                         stopEnterKeyDownPropagation="true"
                                         update=(action (mut metaDescriptionScratch))
                                         data-test-field="meta-description"}}
-                                    <p>Recommended: <b>156</b> characters. You’ve used {{gh-count-down-characters metaDescriptionScratch 156}}</p>
+                                    <p>建议: <b>156</b> 个字符. 你已用 {{gh-count-down-characters metaDescriptionScratch 156}}</p>
                                     {{gh-error-message errors=model.errors property="meta-description"}}
                                 {{/gh-form-group}}
 
                                 <div class="form-group">
-                                    <label>Search Engine Result Preview</label>
+                                    <label>搜索引擎结果预览</label>
                                     <div class="seo-preview">
                                         <div class="seo-preview-title">{{truncate seoTitle 70}}</div>
                                         <div class="seo-preview-link">{{truncate seoURL 70}}</div>
