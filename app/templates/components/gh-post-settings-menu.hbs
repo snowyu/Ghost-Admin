@@ -147,17 +147,31 @@
 
                 <div class="form-group for-checkbox">
                     <label class="checkbox" for="static-page" {{action "togglePage" bubbles="false"}}>
-                        {{one-way-checkbox model.page type="checkbox" name="static-page" id="static-page" class="gh-input post-setting-static-page" update=(action (mut model.page))}}
+                        {{one-way-checkbox model.page
+                            name="static-page"
+                            id="static-page"
+                            class="gh-input post-setting-static-page"
+                            update=(action (mut model.page))
+                        }}
                         <span class="input-toggle-component"></span>
                         <p>文章转页面</p>
                     </label>
 
                     <label class="checkbox" for="featured" {{action "toggleFeatured" bubbles="false"}}>
-                        {{one-way-checkbox model.featured type="checkbox" name="featured" id="featured" class="gh-input post-setting-featured" update=(action (mut model.featured))}}
+                        {{one-way-checkbox model.featured
+                            name="featured"
+                            id="featured"
+                            class="gh-input post-setting-featured"
+                            update=(action (mut model.featured))
+                        }}
                         <span class="input-toggle-component"></span>
                         <p>将本文列入精选内容</p>
                     </label>
                 </div>
+
+                {{gh-psm-template-select
+                    post=model
+                    onTemplateSelect=(action (mut model.customTemplate))}}
 
                 {{#unless model.isNew}}
                     <button type="button" class="gh-btn gh-btn-link gh-btn-icon settings-menu-delete-button" {{action "deletePost"}}><span>{{inline-svg "trash"}} 删除本文</span></button>
@@ -268,7 +282,7 @@
                                     <label>Preview</label>
                                     <div class="gh-twitter-preview">
                                         {{#if twitterImage}}
-                                        <div class="gh-twitter-preview-image" style="background-image: url({{twitterImage}});"></div>
+                                        <div class="gh-twitter-preview-image" style={{twitterImageStyle}}></div>
                                         {{/if}}
                                         <div class="gh-twitter-preview-content">
                                             <div class="gh-twitter-preview-title">{{twitterTitle}}</div>
@@ -336,7 +350,7 @@
                                     <label>Preview</label>
                                     <div class="gh-og-preview">
                                         {{#if facebookImage}}
-                                        <div class="gh-og-preview-image" style="background-image: url({{facebookImage}});"></div>
+                                        <div class="gh-og-preview-image" style={{facebookImageStyle}}></div>
                                         {{/if}}
                                         <div class="gh-og-preview-content">
                                             <div class="gh-og-preview-title">{{truncate facebookTitle 88}}</div>
