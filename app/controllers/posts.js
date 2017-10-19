@@ -69,6 +69,7 @@ export default Controller.extend({
         let options = tags.toArray();
 
         options.unshiftObject({name: 'All tags', slug: null});
+        options.unshiftObject({name: 'None tag', slug: 'NULL'});
 
         return options;
     }),
