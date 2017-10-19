@@ -23,4 +23,8 @@
     {{else}}
         上次编辑于 {{gh-format-post-time post.updatedAtUTC draft=true}}
     {{/if}}
+    {{#each post.tags as |tag|}}
+      {{!-- see the router.js to get proper name --}}
+      {{#link-to "posts" (query-params tag=tag.slug) title="filter this tag" class="gh-badge"}} {{tag.name}} {{/link-to}}
+    {{/each}}
 </section>
